@@ -16,7 +16,7 @@
 				<td><?php echo $month; ?></td>
 				<td><input type="submit" name="change" value="|>"></td>  
 			</tr>			
-
+	
 		<tr>
 			<td>Пн</td>
 			<td>Вт</td>
@@ -37,6 +37,8 @@
 
 	    </form>
 	</table>
+
+
 	
 </div>		
 

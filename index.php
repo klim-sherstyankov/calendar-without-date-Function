@@ -39,6 +39,38 @@ if (isset($_GET["change"])){
 }
 
 
+$daycount = (31 - (($month - 1) % 7 % 2) - ((($month == 2) << !!($year % 4))));
+
+$m_array = array(
+	1 => 1,
+	2 => 4,
+	3 => 4,
+	4 => 0,
+	5 => 2,
+	6 => 5,
+	7 => 0,
+	8 => 3, 
+	9 => 6,
+	10 => 1,
+	11 => 4,
+	12 => 6
+);
+
+$m = $m_array[$month ];
+
+$y = (6 + substr($year, -2) + substr($year, -2) / 4) % 7;
+
+
+$begin_week = (1 + $m + $y) % 7 -1 ;
+
+if ($begin_week == -1) {
+	$begin_week = 6;
+}
+if ($begin_week == 0) {
+	$begin_week = 7;
+}
+
+echo $begin_week;
 
 include __DIR__ . '/form.php';
  ?>
