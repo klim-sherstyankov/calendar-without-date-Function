@@ -69,8 +69,31 @@ if ($begin_week == -1) {
 if ($begin_week == 0) {
 	$begin_week = 7;
 }
+$num=0;
+$day_count = 1;
+while (true) {
+	$num++;
+	if ($num == 1) {
+	for ($i=0; $i <7 ; $i++) { 
+		if ($i < $begin_week - 1) {
+			$week[$num][$i]="";
+		
+		}else{
+			$week[$num][$i]=$day_count;
+		$day_count++;
+		}
+		
+	}
+	} else{
+	for ($i=0; $i <7 ; $i++) { 
+		$week[$num][$i]=$day_count;
+		$day_count++;
+		if ($day_count > $daycount) break;
+	}
+	if ($day_count > $daycount) break;
+}
+}
 
-echo $begin_week;
 
 include __DIR__ . '/form.php';
  ?>
