@@ -1,5 +1,6 @@
 <?php 
 
+// defaults
 
 if (isset($_GET["year"])) {
 		$year=$_GET["year"];
@@ -15,6 +16,7 @@ if (isset($_GET["month"])) {
 }
 
  
+// change of year and month
 
 if (isset($_GET["change"])){
 	if ($_GET["change"] == '<') {
@@ -38,8 +40,11 @@ if (isset($_GET["change"])){
 	}
 }
 
+// number of days in a month
 
 $daycount = (31 - (($month - 1) % 7 % 2) - ((($month == 2) << !!($year % 4))));
+
+// Code of the month in array
 
 $m_array = array(
 	1 => 1,
@@ -58,9 +63,11 @@ $m_array = array(
 
 $m = $m_array[$month ];
 
+// Code of the year
+
 $y = (6 + substr($year, -2) + substr($year, -2) / 4) % 7;
 
-
+// day of the begin week
 $begin_week = (1 + $m + $y) % 7 -1 ;
 
 if ($begin_week == -1) {
@@ -69,8 +76,13 @@ if ($begin_week == -1) {
 if ($begin_week == 0) {
 	$begin_week = 7;
 }
+
+
 $num=0;
 $day_count = 1;
+
+//fill array , i - day week ,num - number day
+
 while (true) {
 	$num++;
 	if ($num == 1) {
